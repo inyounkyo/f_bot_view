@@ -6,17 +6,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <br/>
+        거래소 별
+        <br/>
+        티커 & 매수/매도 | 수익/손실( 총 매매해서 +-손익, 매매런닝시간) | 
+        <br/>
+        달력, 그래프 차트, 텍스트 행, 
+        <br/>
+
       </header>
     </div>
   );
