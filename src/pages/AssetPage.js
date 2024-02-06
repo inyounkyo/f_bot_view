@@ -2,7 +2,7 @@ import React from 'react';
 
 const AssetPage = () => {
     return (
-        <div>
+        <div className='text-4xl font-bold underline'>
             AssetPage
         </div>
     );
