@@ -3,7 +3,16 @@ import React from 'react';
 const InvestPage = () => {
     return (
         <div>
-            InvestPage
+        <span>
+        InvestPage(투자)<br/>
+        ㄴㅇㄹ<br/>
+        ㄴㅇㄹㄴ<br/>
+        ㅇㄹ<br/>
+        ㄴㅇㄹㄴ<br/>
+        ㄹㄴㅇ<br/>
+        ㄹ<br/> 
+        ㄴㄹㄴㅇㄹ
+       </span>
         </div>
     );
 };

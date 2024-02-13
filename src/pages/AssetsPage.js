@@ -1,10 +1,11 @@
 import React from 'react';
 
-const HistoryPage = () => {
+
+const AssetsPage = () => {
     return (
-        <div>
-        <span>
-        HistoryPage(내역)<br/>
+       <>
+       <span>
+        AssetsPage(자산)<br/>
         ㄴㅇㄹ<br/>
         ㄴㅇㄹㄴ<br/>
         ㅇㄹ<br/>
@@ -13,8 +14,8 @@ const HistoryPage = () => {
         ㄹ<br/> 
         ㄴㄹㄴㅇㄹ
        </span>
-        </div>
+       </>
     );
 };
 
-export default HistoryPage;
+export default AssetsPage;

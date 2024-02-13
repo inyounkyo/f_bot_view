@@ -1,14 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
 
-import AssetPage from '../pages/AssetPage';
+import AssetsPage from '../pages/AssetsPage';
 import HistoryPage from '../pages/HistoryPage';
 import InvestPage from '../pages/InvestPage';
+import NotFoundPage from '../pages/NotFoundPage';
+import Layout from '../components/Layout';
 
 const Navigation = () => (
     <Routes>
-        <Route path='/' element={<AssetPage />} />
-        <Route path='/aa' element={<HistoryPage />} />
-        <Route path='/bb' element={<InvestPage />} />
+        <Route element={<Layout />}>
+            <Route path='/' element={<AssetsPage />} />
+            <Route path='/history' element={<HistoryPage />} />
+            <Route path='/invest' element={<InvestPage />} />
+        </Route>
+        <Route path='*' element={<NotFoundPage />} />
     </Routes>
 );
 
