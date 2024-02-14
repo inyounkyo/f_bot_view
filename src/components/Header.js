@@ -9,8 +9,8 @@ const Header = () => {
     return (
     <div className="radio-input">
         <label>
-        <input type="radio" id="value-1" name="value-radio" value="value-1" defaultChecked/>
-        <span onClick={() => navigate('/')}>자산</span>
+          <input type="radio" id="value-1" name="value-radio" value="value-1" defaultChecked/>
+          <span onClick={() => navigate('/')}>매매(시그널)</span>
         </label>
         <label>
           <input type="radio" id="value-2" name="value-radio" value="value-2"/>
