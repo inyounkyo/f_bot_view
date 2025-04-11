@@ -9,16 +9,19 @@ const Header = () => {
     return (
     <div className="radio-input">
         <label>
-          <input type="radio" id="value-1" name="value-radio" value="value-1" defaultChecked/>
-          <span onClick={() => navigate('/')}>매매(시그널)</span>
+          <span onClick={() => navigate('/')}>매매 타점
+            <input type="radio" id="value-1" name="value-radio" value="value-1" defaultChecked/>
+          </span>
         </label>
         <label>
-          <input type="radio" id="value-2" name="value-radio" value="value-2"/>
-          <span onClick={() => navigate('/history')}>자산내역</span>
+          <span onClick={() => navigate('/history')}>자산 내역
+            <input type="radio" id="value-2" name="value-radio" value="value-2" />
+          </span>
         </label>
         <label>
-          <input type="radio" id="value-3" name="value-radio" value="value-3"/>
-          <span onClick={() => navigate('/invest')}>투자</span>
+          <span onClick={() => navigate('/invest')}>투자
+            <input type="radio" id="value-3" name="value-radio" value="value-3"/>
+          </span>
         </label>
         <span className="selection"></span>
     </div>

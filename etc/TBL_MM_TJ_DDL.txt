@@ -1,0 +1,75 @@
+/****
+매매 타점 
+ 테이블 생성 스크립트
+ MYBATIS - SPRING API - RETURN JSON OBJECT 
+
+
+*****/
+CREATE TABLE TBL_MM_TJ(
+	TICKER  PRIMARY KEY
+	KST_DP  PRIMARY KEY
+	BID_CNT	PRIMARY KEY
+	
+)
+
+SELECT
+	TICKER
+	,KST_DP
+	,DP_SCR
+	,DP_TP
+	,CU_SCR
+	,CU_TP
+	,DF_DIV_3M
+	
+FROM TBL_MM_TJ
+ORDER BY KST_DP, KST_DP, NO ASC
+
+
+[
+    {
+      "id": 1,
+      "userName": "wecode",
+      "content": "Welcome to world best coding bootcamp!",
+      "isLiked": true
+    },
+    {
+      "id": 2,
+      "userName": "joonsikyang",
+      "content": "Hi there.",
+      "isLiked": false
+    }
+  ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

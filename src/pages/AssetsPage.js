@@ -12,7 +12,7 @@ const AssetsPage = () => {
         ㄴㅇㄹㄴ<br/>
         ㄹㄴㅇ<br/>
         ㄹ<br/> 
-        ㄴㄹㄴㅇㄹ
+        ㄴㄹㄴㅇㄹdfdfsdf
        </span>
        </>
     );
