@@ -1,4 +1,4 @@
-[
+const MM_DATA = [
     {
       "id": 1,
       "userName": "wecode",
@@ -12,3 +12,5 @@
       "isLiked": false
     }
   ]
+
+export default MM_DATA;

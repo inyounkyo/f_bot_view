@@ -9,7 +9,9 @@ const Layout = () => {
     const params = useParams();
     
     useEffect(() => {
-      console.log(params);
+        console.log('----Layout-----');
+        console.log(params);
+        console.log('----Layout-----');
     });
 
     return (
