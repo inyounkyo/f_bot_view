@@ -5,7 +5,11 @@ import HistoryPage from '../pages/HistoryPage';
 import InvestPage from '../pages/InvestPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import Layout from '../components/Layout';
+
 import MmStoryPage from '../pages/MmStoryPage'
+import Z02 from '../pages/zeroCho/Z02';
+import Z03 from '../pages/zeroCho/Z03';
+import Signup from '../pages/zeroCho/Signup';
 
 const Navigation = () => (
     <Routes>
@@ -16,6 +20,10 @@ const Navigation = () => (
             <Route path='/mm' element={<MmStoryPage />} />
         </Route>
         <Route path='*' element={<NotFoundPage />} />
+        <Route path='/z02' element={<Z02 />} />
+        <Route path='/z03' element={<Z03 />} />
+        <Route path='/signup' element={<Signup />} />
+
     </Routes>
 );
 
