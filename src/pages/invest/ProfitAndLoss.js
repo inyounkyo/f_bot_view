@@ -8,7 +8,7 @@ import './Sample.css';
 
 const ProfitAndLoss = () => {
 
-	const [value, onChange] = useState(new Date());
+	const [date, setDate] = useState(new Date());
 
 	return (
 			<div className='mainContainer'>
@@ -27,16 +27,25 @@ const ProfitAndLoss = () => {
 									<option value='P'>Profit</option>
 									<option value='L'>Loss</option>
 								</select>
-								<div>
-									From:<input type='text' /> ~ To:<input type='text' />
-								</div>
+								Calendar: Fri Apr 04 2025
 								<div>
 									<button>검색</button>
 								</div>
-								{/* <div className="Sample__container"> 
-									<Calendar onChange={onChange} value={value} />
-								</div> */}
+								<div className="Sample__container"> 
+									<Calendar
+										date={date}
+										onChange={setDate} 
+										selectRange={true}/>
+								</div>
 								
+								{date.length > 0 && (
+								<p className="text-center">
+									{date[0].toDateString()}
+									&nbsp;-&nbsp;
+									{date[1].toDateString()}
+								</p>
+									) }
+
 							</div>
 					</div>
 			------------------------------------------------------------------------
