@@ -11,6 +11,8 @@ import Z02 from '../pages/zeroCho/Z02';
 import Z03 from '../pages/zeroCho/Z03';
 import Signup from '../pages/zeroCho/Signup';
 
+import ProfitAndLoss from '../pages/invest/ProfitAndLoss';
+
 const Navigation = () => (
     <Routes>
         <Route element={<Layout />}>
@@ -20,6 +22,10 @@ const Navigation = () => (
             <Route path='/mm' element={<MmStoryPage />} />
         </Route>
         <Route path='*' element={<NotFoundPage />} />
+
+        <Route path='/invest/profit' element={<ProfitAndLoss />} />
+
+    
         <Route path='/z02' element={<Z02 />} />
         <Route path='/z03' element={<Z03 />} />
         <Route path='/signup' element={<Signup />} />
