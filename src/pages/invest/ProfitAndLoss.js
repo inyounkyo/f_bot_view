@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import Calendar from 'react-calendar';
 import dayjs from 'dayjs';
+import axios from 'axios';
 
 import 'react-calendar/dist/Calendar.css';
 import styles from '../../styles/ProfitAndLoss.module.css'
@@ -33,12 +34,12 @@ function TableList({ tableListObj }){
 						tableListObj.map((item, inx) => 
 							<tr key={item.no}>
 								<td>{item.no}</td>
-								<td>{item['list'].tiker}</td>
-								<td>{item['list'].side}</td>
-								<td>{item['list'].date}</td>
-								<td>{item['list'].income_per}</td>
-								<td>{item['list'].profit_krw}</td>
-								<td>{item['list'].account_krw}</td>
+								<td>{item.tiker}</td>
+								<td>{item.side}</td>
+								<td>{item.kst_date}</td>
+								<td>{item.income_per}</td>
+								<td>{item.profit_krw}</td>
+								<td>{item.account_krw}</td>
 							</tr>
 						)
 					}
@@ -49,24 +50,29 @@ function TableList({ tableListObj }){
 }
 
 const ProfitAndLoss = () => {
-	const [date, setDate] = useState(new Date());
+	const [date, setDate] = useState([]);
 	const [tableListObj, setTableListObj] = useState([]); 
-	
-	const sideRef = useRef('ALL');
+	const [sideRef, setSideRef] = useState('ALL');
+
 	const plRef = useRef('ALL');
 
 	useEffect(()=>{
-		setTableListObj([
-			{
-					"no" : 1,
-					"list" : { "tiker":"XRP" , "side":"BID", "date":"2025-04-18 13:34:30", "income_per":"2.34", "profit_krw":"2,000", "account_krw":"96,000"}
-			},
-			{
-					"no" : 2,
-					"list" : { "tiker":"DOGE" , "side":"ASK", "date":"2025-04-18 13:34:30", "income_per":"2.34", "profit_krw":"2,000", "account_krw":"96,000"}
-			}
-		]);
-	}, []);
+		console.log(date);
+		const url = 'http://localhost:9191/getProfitList';
+		axios.get(url, 
+			{ params: 
+				{ from_kst_date: dayjs(date[0]).format('YYYY-MM-DD')
+				, to_kst_date: dayjs(date[1]).format('YYYY-MM-DD')
+				, sideRef: sideRef
+			} 
+		})
+		.then(response =>  {
+			console.log(response);
+			setTableListObj(response.data);
+		}).catch(error => {
+			console.log(error);
+		});
+	}, [date, sideRef]);
 
 	function searchAction(e){
 		e.preventDefault();
@@ -80,7 +86,7 @@ const ProfitAndLoss = () => {
 						<form onSubmit={searchAction}>
 							<div>
 								SIDE-TYPE:
-								<select ref={sideRef} name="productId">
+								<select name="productId" onChange={ (e)=>setSideRef(e.target.value) }>
 									<option value='ALL' defaultValue>ALL</option>
 									<option value='BID'>BID</option>
 									<option value='ASK'>ASK</option>
@@ -127,5 +133,3 @@ const ProfitAndLoss = () => {
 };
 
 export default ProfitAndLoss;
-
-
