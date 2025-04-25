@@ -8,6 +8,7 @@ import axios from 'axios';
 import 'react-calendar/dist/Calendar.css';
 import styles from '../../styles/ProfitAndLoss.module.css'
 import './Sample.css';
+import './Pageing.css';
 
 function TableList({ tableListObj }){
 
@@ -46,6 +47,22 @@ function TableList({ tableListObj }){
 				</tfoot>
 			</table>
 		</>
+	);
+}
+
+const Pageing = () => {
+	return(
+		<ul>
+			<li><a href="#">Previous</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+			<li><a href="#">7</a></li>
+			<li><a href="#">Next</a></li>
+		</ul>
 	);
 }
 
@@ -125,6 +142,10 @@ const ProfitAndLoss = () => {
 						<div className='body_content'>
 									<TableList tableListObj={tableListObj}/>
 						</div>
+					</div>
+
+					<div style={{width:'300px'}}>
+						<Pageing />
 					</div>
 
 
