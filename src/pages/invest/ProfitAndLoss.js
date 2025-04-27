@@ -33,8 +33,8 @@ function TableList({ tableListObj }){
 				<tfoot>
 					{
 						tableListObj.map((item, inx) => 
-							<tr key={item.no}>
-								<td>{item.no}</td>
+							<tr key={item.DESC_NO}>
+								<td>{item.DESC_NO}</td>
 								<td>{item.tiker}</td>
 								<td>{item.side}</td>
 								<td>{item.kst_date}</td>
@@ -50,50 +50,93 @@ function TableList({ tableListObj }){
 	);
 }
 
-const Pageing = () => {
+const Pageing = ({ pageObj, pageChange, currPg }) => {
+	
+	let totPage = (pageObj==undefined)?1:Number(pageObj.TOT_PAGE);
+	console.log('currPg: %s, totPage: %s', currPg, totPage);
+	let currNextStep = 0;
+
+	if ((currPg+2) <= totPage) {currNextStep = currPg+2;}
+	else currNextStep = totPage;
+
+	
+
 	return(
 		<ul>
-			<li><a href="#">Previous</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">6</a></li>
-			<li><a href="#">7</a></li>
-			<li><a href="#">Next</a></li>
+			{pageObj &&
+				Array(currNextStep).fill(0).map((_, i) => 
+					<li key={i}>
+						<button onClick={()=>pageChange(i+1)}>{i+1}</button>
+					</li>
+				)
+			}
 		</ul>
 	);
 }
 
 const ProfitAndLoss = () => {
+
 	const [date, setDate] = useState([]);
 	const [tableListObj, setTableListObj] = useState([]); 
 	const [sideRef, setSideRef] = useState('ALL');
 
 	const plRef = useRef('ALL');
 
+	console.log( dayjs(date[0]).format('YYYY-MM-DD') );
+	console.log( dayjs(date[1]).format('YYYY-MM-DD') );
+
+	//console.log(date);
+	/* paging vars
+	*/
+	// 현재 선택된 페이지 번호	
+	const [currPg, setCurrPg] = useState("1");
+	
+
+	// 총 로우 수
+	let totalRow = 0;
+	// 페이지 당 ROW
+	const PAGE_ROW_GB = 3;
+	// 페이지 당 페이징<가변>
+	let PAGE_PAGEING_GB = 3;
+	// 총 페이지 수
+	let totalPg = null;
+	// 시작 페이지 번호
+	let startPgIdx = null;
+
 	useEffect(()=>{
-		console.log(date);
+		//console.log(date);
 		const url = 'http://localhost:9191/getProfitList';
-		axios.get(url, 
+		const pgUrl = 'http://localhost:9191/getPageing';
+
+		axios.get(pgUrl, 
 			{ params: 
 				{ from_kst_date: dayjs(date[0]).format('YYYY-MM-DD')
 				, to_kst_date: dayjs(date[1]).format('YYYY-MM-DD')
 				, sideRef: sideRef
+				, currPg: currPg
+				, PAGE_ROW_GB: PAGE_ROW_GB
 			} 
 		})
 		.then(response =>  {
-			console.log(response);
+			// console.log(response);
 			setTableListObj(response.data);
 		}).catch(error => {
 			console.log(error);
 		});
-	}, [date, sideRef]);
+	}, [date, sideRef, currPg]);
 
+	function pageChange_fn( pageNum ){
+		console.log(pageNum);
+		setCurrPg(pageNum);
+	}
+	
 	function searchAction(e){
 		e.preventDefault();
 		console.log( sideRef.current.value );
+	}
+
+	function onChangeCalendar(){
+		setCurrPg(1);
 	}
 
 	return (
@@ -128,8 +171,10 @@ const ProfitAndLoss = () => {
 								</div>
 								<div className="Sample__container"> 
 									<Calendar
-										date={date}
-										onChange={setDate} 
+										//date={date}
+										//onChange={onChangeCalendar} 
+										onChange={setDate}
+										//onClick={()=>setCurrPg(1)} 
 										selectRange={true}
 										formatDay ={(locale, date) => dayjs(date).format('DD')}
 									/>
@@ -145,7 +190,7 @@ const ProfitAndLoss = () => {
 					</div>
 
 					<div style={{width:'300px'}}>
-						<Pageing />
+						<Pageing pageObj={tableListObj[0]} pageChange={pageChange_fn} currPg={currPg}/>
 					</div>
 
 
