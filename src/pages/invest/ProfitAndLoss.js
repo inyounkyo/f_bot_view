@@ -53,23 +53,23 @@ function TableList({ tableListObj }){
 const Pageing = ({ pageObj, pageChange, currPg }) => {
 	
 	let totPage = (pageObj==undefined)?1:Number(pageObj.TOT_PAGE);
-	console.log('currPg: %s, totPage: %s', currPg, totPage);
-	let currNextStep = 0;
-
-	if ((currPg+2) <= totPage) {currNextStep = currPg+2;}
-	else currNextStep = totPage;
-
 	
+	console.log('currPg: %s, totPage: %s', currPg, totPage);
+	
+	let start_i = 0;
+	let end_i = 0;
+	let pageingBody = [];
+	for(let i=1; i<=totPage; i++){
+			pageingBody.push(<li key={i}>
+				{(4<=currPg&&i==1)&&<button onClick={ ()=>pageChange(1) }>1</button>}
+				{(4<=currPg&&i==1)&&<span>...</span>}
+				{(currPg-2<=i && i<=currPg+2)&&<button onClick={ ()=>pageChange(i) }>{i}</button>}
+				</li>);
+	}
 
 	return(
 		<ul>
-			{pageObj &&
-				Array(currNextStep).fill(0).map((_, i) => 
-					<li key={i}>
-						<button onClick={()=>pageChange(i+1)}>{i+1}</button>
-					</li>
-				)
-			}
+			{ pageingBody }
 		</ul>
 	);
 }

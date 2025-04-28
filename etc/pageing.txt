@@ -25,6 +25,7 @@ https://flights.booking.com/flights/SEL-CJU/?to=CJU&from=SEL&fromCountry=kr&depa
 1,..., 7, 8, (9), 10, 11
 1,..., 8, 9, (10), 11, 12
 
+6개부터 ...
 
 
 
