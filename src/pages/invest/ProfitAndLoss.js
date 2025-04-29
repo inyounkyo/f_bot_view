@@ -56,15 +56,17 @@ const Pageing = ({ pageObj, pageChange, currPg }) => {
 	
 	console.log('currPg: %s, totPage: %s', currPg, totPage);
 	
-	let start_i = 0;
-	let end_i = 0;
+	let start_i = (currPg==1|currPg==2)?1:currPg-2;
+	let end_i = (currPg+2<=totPage)?currPg+2:totPage;
 	let pageingBody = [];
-	for(let i=1; i<=totPage; i++){
-			pageingBody.push(<li key={i}>
-				{(4<=currPg&&i==1)&&<button onClick={ ()=>pageChange(1) }>1</button>}
-				{(4<=currPg&&i==1)&&<span>...</span>}
-				{(currPg-2<=i && i<=currPg+2)&&<button onClick={ ()=>pageChange(i) }>{i}</button>}
-				</li>);
+	for(let i=start_i; i<=end_i; i++){
+			pageingBody.push(
+				<li key={i}>
+					{(4<=currPg&&start_i==i)&&<button onClick={ ()=>pageChange(1) }>1</button>}
+					{(4<=currPg&&start_i==i)&&<span>...</span>}
+					<button onClick={ ()=>pageChange(i) }>{i}</button>
+				</li>
+				);
 	}
 
 	return(
@@ -90,18 +92,8 @@ const ProfitAndLoss = () => {
 	*/
 	// 현재 선택된 페이지 번호	
 	const [currPg, setCurrPg] = useState("1");
-	
 
-	// 총 로우 수
-	let totalRow = 0;
-	// 페이지 당 ROW
 	const PAGE_ROW_GB = 3;
-	// 페이지 당 페이징<가변>
-	let PAGE_PAGEING_GB = 3;
-	// 총 페이지 수
-	let totalPg = null;
-	// 시작 페이지 번호
-	let startPgIdx = null;
 
 	useEffect(()=>{
 		//console.log(date);
