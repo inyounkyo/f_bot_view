@@ -14,6 +14,7 @@ import Signup from '../pages/zeroCho/Signup';
 import ProfitAndLoss from '../pages/invest/ProfitAndLoss';
 
 import Ludy_css_login from '../pages/study/Ludy_css_login';
+import Lud_web_index from '../pages/study/lud_web/Lud_web_index';
 
 const Navigation = () => (
     <Routes>
@@ -27,6 +28,8 @@ const Navigation = () => (
 
         <Route path='/invest/profit' element={<ProfitAndLoss />} />
         <Route path='/study/ludy_css' element={<Ludy_css_login />} />
+        <Route path='/study/ludy_web' element={<Lud_web_index />} />
+        
         
         <Route path='/z02' element={<Z02 />} />
         <Route path='/z03' element={<Z03 />} />
