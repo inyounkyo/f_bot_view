@@ -125,7 +125,7 @@ body{
 	margin-bottom: 15px;
 }
 
-/* yk markeup */
+/* yk markup */
 .desc_content{
 	display: flex;
 	flex-wrap: wrap;
@@ -246,6 +246,10 @@ body{
 	.nav_menu_btn{
 		display: flex;
 		align-items: center;
+	}
+	.skills-box{
+		display: flex;
+		gap: 3px;
 	}
 	.nav_menu_btn .fa-bars{
 		display: flex;

@@ -6,7 +6,6 @@ const Lud_web_index = () => {
 	
 	const [menu_media_toggle, setMenu_media_toggle] = useState(true);
 	const [modalSelId, setModalSelId] = useState("");
-	const modalSelIdRef = useRef("");
 
 	useEffect(() => {
 		window.addEventListener("click",  (e) => {
@@ -23,7 +22,7 @@ const Lud_web_index = () => {
 
 	return (
 	<div>
-			{/* Welcome WebSite - Css with Html  */}
+			{/* Welcome to Ludi-Bro WebSite - Css with Html  */}
 
 			{/* MODAL BOX */}
 			<div className="modal" id="myModal" style={{ display:`${(modalSelId=='myModal')?'block':'none'}` }}>
@@ -80,7 +79,7 @@ const Lud_web_index = () => {
 			<div className="wrapper">
 					<nav className="nav">
 							<div className="nav_logo">
-								<span>Young-Kyo</span>
+								<span>Luke-Kyo</span>
 							</div>
 							<div className="right_nav">
 								<div className={(menu_media_toggle)?'nav_menu':'nav_menu responsive'}  id="navMenu">
