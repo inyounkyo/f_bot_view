@@ -1,5 +1,8 @@
 import React from 'react';
 import '../lud_web/css/style.css';
+import circle from '../lud_web/img/circle.png';
+import png1 from '../lud_web/img/1.png';
+
 import { useState, useEffect, useRef } from 'react';
 
 const Lud_web_index = () => {
@@ -75,8 +78,10 @@ const Lud_web_index = () => {
 				</div>
 			</div>
 			{/* END OF MODAL BOX */}
-
+			
+			{/* WRAPPER */}
 			<div className="wrapper">
+				{/* NAVIGATION BAR */}
 					<nav className="nav">
 							<div className="nav_logo">
 								<span>Luke-Kyo</span>
@@ -170,7 +175,67 @@ const Lud_web_index = () => {
 								</div>
 							</div>
 					</nav>
+
+					{/* MAIN */}
+					<div className="main">
+						<div className="row hero">
+							<div className="col col-1">
+								<div className="social_icons">
+									{/* Icon animated circle */}
+									<div className="icon_circle"></div>
+
+									{/* Social Icon */}
+									<a href="https://linkedin.com" target="_blank" style={{textDecoration:'none'}} rel="noopener noreferrer">
+										<i className="fa-brands fa-linkedin-in icon"></i>
+									</a>
+									<a href="https://dribbble.com" target="_blank" style={{textDecoration:'none'}} rel="noopener noreferrer">
+										<i className="fa-brands fa-dribbble icon"></i>
+									</a>
+									<a href="https://github.com" target="_blank" style={{textDecoration:'none'}} rel="noopener noreferrer">
+										<i className="fa-brands fa-github icon"></i>
+									</a>
+									<a href="https://behance.com" target="_blank" style={{textDecoration:'none'}} rel="noopener noreferrer">
+										<i className="fa-brands fa-behance icon"></i>
+									</a>
+								</div>
+								{/* HERO TEXT */}
+								<div className="hero_box">
+									<div className="hello">
+										<p>Hello, I Am</p>
+									</div>
+									<div className="job">
+										<span className="multiText">Develope</span>
+									</div>
+									<div className="hero_description">
+										<p>Experienced frontend developer with a passion for creating visually stunning and user-friendly websites.</p>
+									</div>
+									<div className="hero_btn">
+										<button className="btn_1">Hire Me</button>
+										<button className="btn_2"><a href='assets/pdf/download.pdf'>Download CV</a></button>
+									</div>
+								</div>
+							</div>
+							<div className="col col-2">
+								<div className="circle">
+									<img src={circle} alt="" />
+								</div>
+								<div className="hero-image">
+									<img src={png1} alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
 			</div>
+
+
+
+
+
+
+
+
+
+
 
 
 

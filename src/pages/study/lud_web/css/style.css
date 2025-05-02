@@ -215,6 +215,154 @@ body{
 }
 /* END OF NAVIGATION BAR */
 
+/* MAIN BOX */
+.row{
+	display: flex;
+}
+.hero{
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+}
+.col{
+	display: flex;
+	width: 50%;
+}
+.col-1{
+	align-items: center;
+	padding-inline: 5vw	50px;
+	color: var(--second-color);
+}
+/* SOCIAL ICONS */
+.social_icons{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-right: 30px;
+	border-radius: 50px;
+	background: var(--icons-bg);
+}
+.icon{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	margin-block: 5px;
+	color: var(--second-color);
+	cursor: pointer;
+	z-index: 1;
+}
+.icon:nth-child(2){
+	margin-top: 0;
+}
+.icon:last-child{
+	margin-bottom: 0;
+}
+.icon:hover{
+	color: var(--orange-color);
+}
+.icon_circle{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	transform: translate(-50%, -50%);
+	width: 40px;
+	height: 40px;
+	border: 2px solid	var(--blue-color);
+	border-radius: 50%;
+	animation: iconSlide 8s ease 1s infinite alternate;
+}
+@keyframes iconSlide{
+	25%{
+		border: 2px solid	var(--blue-color);
+		top: 20px;
+	}
+	50%{
+		border: 2px solid	#C40101;
+		top: 70px;
+	}
+	75%{
+		border: 2px solid	var(--second-color);
+		top: 115px;
+	}
+	100%{
+		border: 2px solid	var(--orange-color);
+		top: 160px;
+	}
+
+}
+
+/* Paused when the user hover on any icon */
+.social_icons:hover .icon_circle{
+	animation-play-state: paused;
+}
+
+/* Hero Text */
+.hero_box{
+	display: flex;
+	flex-direction: column;
+}
+.hero_box .hello{
+	font-size: 25px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+.hero_box .job{
+	font-size: 45px;
+	font-weight: 700;
+	color: var(--second-color);
+	margin-bottom: 10px;
+}
+.hero_box .hero_btn{
+	margin-top: 30px;
+}
+.hero_box button{
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+.btn_1{
+	background: var(--orange-color);
+	color: var(--first_color);
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+}
+.btn_2{
+	margin-left: 1vw;
+	background: var(--first-color);
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+}
+.btn_2 a{
+	text-decoration: none;
+	color: var(--black-color);
+}
+/* HERO IMAGE BOX */
+.circle img{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 590px;
+	animation: circleZoom 5s infinite;
+}
+@keyframes circleZoom{
+	50%{
+		width: 600px;
+	}
+}
+.hero-image{
+	z-index: 50;
+}
+.hero-image img{
+	position: absolute;
+	right: 250px;
+	bottom: 0;
+	width: 350px;
+}
+
+
+
 /* Responsive - Media Query: 1084px */
 @media (max-width: 1084px){
 	.nav_menu.responsive{
