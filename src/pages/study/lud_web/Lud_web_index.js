@@ -9,6 +9,7 @@ const Lud_web_index = () => {
 	
 	const [menu_media_toggle, setMenu_media_toggle] = useState(true);
 	const [modalSelId, setModalSelId] = useState("");
+	const [moonSunMode, setMoonSunMode] = useState("sun");
 
 	useEffect(() => {
 		window.addEventListener("click",  (e) => {
@@ -24,7 +25,7 @@ const Lud_web_index = () => {
 	}
 
 	return (
-	<div>
+	<div className={`bodyi ${moonSunMode}`}>
 			{/* Welcome to Ludi-Bro WebSite - Css with Html  */}
 
 			{/* MODAL BOX */}
@@ -165,9 +166,10 @@ const Lud_web_index = () => {
 									<a href='asset/pdf/download.pdf' className='btn'><i className="fa fa-download"></i><span>Download CV</span></a>
 								</div>
 								<div className="mode">
-									<div className="moon-sun" id="toggle-switch">
-										<i className="fa fa-moon" id="moon"></i>
-										<i className="fa fa-sun" id="sun"></i>
+									<div className="moon-sun" id="toggle-switch" onClick={ 
+																					()=> setMoonSunMode((moonSunMode=="sun")?'dark':'sun') }>
+										<i className="fa fa-moon" id="moon" style={{opacity:`${moonSunMode=='sun'?'100':'0'}`}}></i>
+										<i className="fa fa-sun" id="sun" style={{opacity:`${moonSunMode=='dark'?'100':'0'}`}}></i>
 									</div>
 								</div>
 								<div className="nav_menu_btn">
@@ -222,6 +224,20 @@ const Lud_web_index = () => {
 								<div className="hero-image">
 									<img src={png1} alt="" />
 								</div>
+								<div className="clients">
+									<i className="fa-regular fa-user"></i>
+									<div className="clients-content">
+										<span>2k +</span>
+										<p>Happy Clients</p>
+									</div>
+								</div>
+								<div className="experience">
+									<i className="fa-regular fa-star"></i>
+									<div className="xp-content">
+										<span>10 +</span>
+										<p>Years of experience</p>
+									</div>
+								</div>								
 							</div>
 						</div>
 					</div>
