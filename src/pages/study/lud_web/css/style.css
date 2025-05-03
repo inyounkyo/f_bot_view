@@ -441,6 +441,7 @@ body{}
 	}
 	.skills-box{
 		display: flex;
+		flex-wrap: wrap;
 		gap: 3px;
 	}
 	.nav_menu_btn .fa-bars{
